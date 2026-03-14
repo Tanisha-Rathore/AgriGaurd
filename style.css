@@ -1,0 +1,177 @@
+/* GLOBAL */
+
+body{
+font-family:"Segoe UI", Arial, sans-serif;
+background:linear-gradient(135deg,#a8e063,#56ab2f);
+min-height:100vh;
+margin:0;
+}
+
+
+/* HERO HEADER */
+
+.hero{
+text-align:center;
+color:white;
+margin-bottom:30px;
+}
+
+.hero h1{
+font-size:60px;
+font-weight:800;
+letter-spacing:1px;
+}
+
+.hero p{
+font-size:22px;
+opacity:0.95;
+margin-top:8px;
+}
+
+
+/* FORM CARD */
+
+.card{
+background:rgba(255,255,255,0.95);
+backdrop-filter:blur(10px);
+padding:30px;
+border-radius:18px;
+box-shadow:0 15px 35px rgba(0,0,0,0.15);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-3px);
+}
+
+
+/* LABEL */
+
+label{
+font-weight:600;
+display:block;
+margin-top:10px;
+font-size:14px;
+}
+
+
+/* INPUT */
+
+input,select{
+width:100%;
+padding:11px 12px;
+border-radius:10px;
+border:1px solid #ddd;
+margin-top:6px;
+font-size:14px;
+transition:0.2s;
+}
+
+input:focus,select:focus{
+border-color:#2f8f6b;
+outline:none;
+box-shadow:0 0 0 2px rgba(47,143,107,0.15);
+}
+
+
+/* BUTTON */
+
+button{
+width:100%;
+padding:14px;
+margin-top:20px;
+border-radius:12px;
+border:none;
+background:linear-gradient(135deg,#2f8f6b,#1e6b51);
+color:white;
+font-size:16px;
+font-weight:600;
+cursor:pointer;
+transition:0.25s;
+}
+
+button:hover{
+transform:scale(1.02);
+box-shadow:0 8px 18px rgba(0,0,0,0.2);
+}
+
+
+/* RESULT CARDS */
+
+.result-card{
+background:white;
+padding:25px;
+border-radius:16px;
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+min-height:140px;
+width:100%;
+transition:0.25s;
+}
+
+.result-card:hover{
+transform:translateY(-5px);
+}
+
+.result-card h5{
+font-size:18px;
+font-weight:600;
+margin-bottom:10px;
+}
+
+.result-card p{
+font-size:16px;
+margin:0;
+}
+
+
+/* CHART */
+
+.chart-container{
+width:100%;
+margin-top:40px;
+}
+
+
+/* FOOTER */
+
+.footer{
+text-align:center;
+margin-top:15px;
+font-size:13px;
+color:#777;
+}
+
+
+/* TABLET */
+
+@media(max-width:992px){
+
+.hero h1{
+font-size:32px;
+}
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:576px){
+
+.hero h1{
+font-size:26px;
+}
+
+.hero p{
+font-size:15px;
+}
+
+.card{
+padding:20px;
+}
+
+button{
+font-size:15px;
+}
+
+}
+
