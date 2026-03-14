@@ -1,221 +1,43 @@
 <!DOCTYPE html>
-<html>
-<head>
-
-<title>AI Crop Yield Prediction</title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-</head>
-
-<body>
-
-<!-- HERO HEADER -->
-
-<div class="hero">
-
-<h1>🌾 AI Crop Yield Prediction</h1>
-
-<p>Smart Agriculture</p>
-
-</div>
-
-
-<div class="container main-card">
-
-<form method="POST" action="/predict-ui">
-
-<div class="row">
-
-<div class="col-md-6">
-
-<label>District</label>
-
-<select name="District_Name" class="form-control" required>
-
-{% for d in districts %}
-<option value="{{d}}">{{d}}</option>
-{% endfor %}
-
-</select>
-
-</div>
-
-
-<div class="col-md-6">
-
-<label>Crop</label>
-
-<select name="Crop" class="form-control" required>
-
-{% for c in crops %}
-<option value="{{c}}">{{c}}</option>
-{% endfor %}
-
-</select>
-
-</div>
-
-</div>
-
-
-<div class="row mt-3">
-
-<div class="col-md-4">
-
-<label>Month</label>
-
-<input type="number" name="Month" min="1" max="12" class="form-control" required>
-
-</div>
-
-
-<div class="col-md-4">
-
-<label>Year</label>
-
-<input type="number" name="Crop_Year" class="form-control" required>
-
-</div>
-
-
-<div class="col-md-4">
-
-<label>Area (hectare)</label>
-
-<input name="Area" type="number" step="0.01" class="form-control" required>
-
-</div>
-
-</div>
-
-
-<button class="btn btn-success predict-btn mt-4">🔮 Predict</button>
-
-</form>
-
-
-{% if user_prediction is not none %}
-
-<!-- RESULT CARDS -->
-
-<div class="row result-section">
-
-
-<div class="col-md-4">
-
-<div class="card result-card">
-
-<h5>🌱 Season</h5>
-
-<p>{{season}}</p>
-
-</div>
-
-</div>
-
-
-<div class="col-md-4">
-
-<div class="card result-card">
-
-<h5>📊 Yield (ton per hectare)</h5>
-
-<p>{{user_prediction}}</p>
-
-</div>
-
-</div>
-
-
-<div class="col-md-4">
-
-<div class="card result-card">
-
-<h5>🏆 Best Crop</h5>
-
-<p>{{best_crop}}</p>
-
-</div>
-
-</div>
-
-
-<div class="col-md-6">
-
-<div class="card result-card">
-
-<h5>📈 Expected Yield (best crop)</h5>
-
-<p>{{best_yield}}</p>
-
-</div>
-
-</div>
-
-
-<div class="col-md-6">
-
-<div class="card result-card">
-
-<h5>🔮 LSTM Forecast</h5>
-
-<p>{{prediction}}</p>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- CHART -->
-
-<div class="chart-container">
-
-<canvas id="yieldChart"></canvas>
-
-</div>
-
-
-<script>
-
-const ctx = document.getElementById('yieldChart');
-
-new Chart(ctx,{
-
-type:'bar',
-
-data:{
-
-labels:['User Crop','Best Crop'],
-
-datasets:[{
-
-label:'Production',
-
-data:[{{user_prediction}},{{best_yield}}],
-
-backgroundColor:['#4CAF50','#2196F3']
-
-}]
-
-}
-
-});
-
-</script>
-
-{% endif %}
-
-</div>
-
-</body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
 </html>
-
