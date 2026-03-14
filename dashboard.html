@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>AI Crop Yield Prediction</h2>
+<form method="POST">
+  <input name="year" placeholder="Year" required>
+  <input name="area" placeholder="Area (ha)" required>
+  <button>Predict</button>
+</form>
+
+{% if ml_pred %}
+  <p>🌳 ML Prediction: {{ ml_pred }}</p>
+  <p>🧠 LSTM Forecast: {{ lstm_pred }}</p>
+{% endif %}
+
+<a href="/logout">Logout</a>
+{% endblock %}
